@@ -1,24 +1,43 @@
 ---
-import './hero.css';
-import Boton from '../atoms/Boton.astro';
+import { Image } from 'astro:assets';
+/* import FollowLine from '../images/FollowLine.svg';
+ */
 ---
 
-<section class="hero">
-
-	<div class="hero__container">
-		<div class="text__content">
-			<h1 class="hero__title color__gradiente">Jhon Doe</h1>
-			<p class="hero__text">
-				Una descripción breve y llamativa sobre el tema principal del sitio
-			</p>
-			<Boton href="#" texto="Quiero saber más"/>
-		</div>
-    <img
-		class="hero__img"
-		src="/img/jhon-doe.webp"
-		alt="Jhon Doe"
-		width="384"
-    	height="384"
-	/>
+<div
+	class="flex flex-col md:flex-row my-12 justify-center items-center md:gap-x-10"
+>
+	<div class="">
+		<h1 class="text-3xl font-bold leading-none min-w-1/3">
+			Hi, I'm <br />
+			<span class="text-gradient">Hugo Brink</span>
+		</h1>
 	</div>
-</section>
+
+	<div class="flex justify-center min-w-1/3">
+		<Image
+			src="/img/profile.jpg"
+			alt="Hugo Brink's profile picture"
+			width={144}
+			height={144}
+			class="w-36 h-36 m-3 rounded-full object-cover shadow-lg hover:shadow-xl"
+			loading="eager"
+		/>
+	</div>
+
+	<div class="flex flex-col items-start justify-center gap-2 min-w-1/3">
+		<p class="flex flex-row gap-2">
+			<img src="/assets/location.svg" alt="Location" />
+
+			Porto, Portugal
+		</p>
+		<p class="flex flex-row gap-2">
+			<img src="/assets/email.svg" alt="Mail" />
+			hugobrinkcarvalho@gmail.com
+		</p>
+		<p class="flex flex-row gap-2">
+			<img src="/assets/github.svg" alt="Github" />
+			@hugobrink
+		</p>
+	</div>
+</div>
