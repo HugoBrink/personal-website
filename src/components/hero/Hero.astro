@@ -14,9 +14,10 @@ import Bio from './Bio.astro';
 				class="text-3xl font-bold leading-none min-w-1/3 text-center py-4"
 			>
 				Hi, I'm <br />
-				<p class="text-gradient animate-bounce text-gray-400 pt-2">
-					Hugo Brink!
-				</p>
+				<div class="flex flex-row text-gray-400 pt-2">
+					<p class="">Hugo Brink</p>
+					<p class="animate-blink">|</p>
+				</div>
 			</h1>
 		</div>
 
@@ -32,21 +33,28 @@ import Bio from './Bio.astro';
 		</div>
 
 		<div
-			class="hidden md:flex flex-col items-start justify-center gap-2 min-w-1/3"
+			class="hidden md:flex flex-col items-start justify-center gap-2 min-w-1/3 leading-none"
 		>
 			<p class="flex flex-row gap-2">
 				<img src="/assets/location.svg" alt="Location" />
 
 				Porto, Portugal
 			</p>
-			<p class="flex flex-row gap-2">
-				<img src="/assets/email.svg" alt="Mail" />
-				hugobrinkcarvalho@gmail.com
-			</p>
-			<p class="flex flex-row gap-2">
-				<img src="/assets/github.svg" alt="Github" />
-				@hugobrink
-			</p>
+			<a
+				class="hover:underline"
+				href="mailto:hugobrinkcarvalho@gmail.com"
+			>
+				<p class="flex flex-row gap-2">
+					<img src="/assets/email.svg" alt="Mail" />
+					hugobrinkcarvalho@gmail.com
+				</p>
+			</a>
+			<a class="hover:underline" href="https://github.com/HugoBrink">
+				<p class="flex flex-row gap-2">
+					<img src="/assets/github.svg" alt="Github" />
+					@hugobrink
+				</p>
+			</a>
 		</div>
 	</div>
 </div>

@@ -23,3 +23,12 @@ h1 {
     /* text-[#1D3C72] */
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
+iconify-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+}
