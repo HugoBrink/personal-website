@@ -93,7 +93,8 @@ export const last_projects = [
 		avatar: 'img/last_projects/portfolio.png',
 		link: '/',
 		github: 'https://github.com/HugoBrink/sleepy-shell',
-		description: 'Developed a website with Astro to showcase my projects. ',
+		description:
+			'Developed my personal website with Astro to showcase my projects and skills. ',
 
 		list: [
 			'Built with Astro, TailwindCSS',

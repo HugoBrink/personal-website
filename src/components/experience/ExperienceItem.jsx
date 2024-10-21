@@ -9,7 +9,7 @@ const experience = [
 			</p>
 		),
 		summary:
-			'Developed and maintained web applications using Angular and .NET Core, focusing on performance and security.',
+			'Worked on various projects, ranging from automation/load testing to web development. Initially focused on Python scripting and automation testing using JMeter, alongside data analysis in Excel. Later transitioned to an outsourcing role for Valvoline, developing a platform with Angular and Java Spring Boot, following best coding practices and Git conventions. Gained experience working with Agile methodologies.',
 		techs: {
 			Python: 'skill-icons:python-light',
 			JavaScript: 'material-symbols:javascript',
@@ -17,7 +17,7 @@ const experience = [
 			Excel: 'vscode-icons:file-type-excel',
 			JMeter: 'simple-icons:apachejmeter',
 			Java: 'skill-icons:java-light',
-			'Java Spring Boot': 'skill-icons:spring-light',
+			'Spring Boot': 'skill-icons:spring-light',
 			Git: 'logos:git-icon',
 		},
 	},
@@ -30,7 +30,7 @@ const experience = [
 			</p>
 		),
 		summary:
-			'Developed and maintained web applications using Angular and .NET Core, focusing on performance and security.',
+			'I began my freelance journey to challenge myself and explore new languages and approaches. Developed several websites and platforms using the latest tech stacks to stay updated and continuously learn new technologies, delivering dynamic and responsive solutions to clients.',
 		techs: {
 			NextJS: 'logos:nextjs-icon',
 			TailwindCSS: 'skill-icons:tailwindcss-light',
@@ -43,6 +43,7 @@ const experience = [
 			Astro: 'logos:astro-icon',
 			Vercel: 'logos:vercel-icon',
 			Git: 'logos:git-icon',
+			Hostinger: 'simple-icons:hostinger',
 		},
 	},
 ];
@@ -62,6 +63,8 @@ const urls = {
 	Wordpress: 'https://wordpress.org/',
 	Figma: 'https://www.figma.com/',
 	Astro: 'https://astro.build/',
+	JavaScript: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+	Hostinger: 'https://www.hostinger.com/',
 };
 
 function ExperienceItem() {
@@ -73,23 +76,26 @@ function ExperienceItem() {
 					className="flex items-start justify-start gap-x-2  "
 				>
 					<p className="text-white min-w-28">{item.date}</p>
-					<img src="assets/line.svg" alt="line" />
+					<img
+						className="hidden md:block"
+						src="assets/line.svg"
+						alt="line"
+					/>
 					<div className="flex flex-col text-white ">
 						{item.title}
-						<p className="font-semibold py-1">Summary:</p>
-						<li className="text-sm ">{item.summary}</li>
+
+						<li className="text-sm text-gray-400">
+							{item.summary}
+						</li>
 						<p className="font-semibold py-1">Techs:</p>
 						<div className="flex flex-wrap gap-2">
 							{Object.keys(item.techs).map((tech, index) => (
 								<a href={urls[tech]} target="_blank">
-									<div
-										key={index}
-										className="flex items-center bg-gray-800 rounded-md p-2"
-									>
+									<div className="flex items-center bg-gray-800 rounded-md px-2 py-1 ">
 										<iconify-icon
 											icon={`${item.techs[tech].toLowerCase()}`}
-											width="20"
-											height="20"
+											width="15"
+											height="15"
 										/>
 										<span className="ml-2 text-sm">
 											{tech}
