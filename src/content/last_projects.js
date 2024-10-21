@@ -92,7 +92,7 @@ export const last_projects = [
 		type: 'website',
 		avatar: 'img/last_projects/portfolio.png',
 		link: '/',
-		github: 'https://github.com/HugoBrink/sleepy-shell',
+		github: 'https://github.com/HugoBrink/personal-website',
 		description:
 			'Developed my personal website with Astro to showcase my projects and skills. ',
 
