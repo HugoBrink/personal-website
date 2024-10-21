@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Bio from './Bio.astro';
+import { Icon } from 'astro-icon/components';
 /* import FollowLine from '../images/FollowLine.svg';
  */
 ---
@@ -35,25 +36,69 @@ import Bio from './Bio.astro';
 		<div
 			class="hidden md:flex flex-col items-start justify-center gap-2 min-w-1/3 leading-none"
 		>
-			<p class="flex flex-row gap-2">
+			<div class="flex flex-row gap-2 items-center justify-center">
 				<img src="/assets/location.svg" alt="Location" />
-
-				Porto, Portugal
-			</p>
+				<p class="">Porto, Portugal</p>
+			</div>
 			<a
 				class="hover:underline"
-				href="mailto:hugobrinkcarvalho@gmail.com"
+				href="mailto:hugobrinkcarvalho@gmail.com?subject=Personal%20Website:"
 			>
-				<p class="flex flex-row gap-2">
+				<div class="flex flex-row items-center justify-center gap-2">
 					<img src="/assets/email.svg" alt="Mail" />
-					hugobrinkcarvalho@gmail.com
-				</p>
+					<p class="">hugobrinkcarvalho@gmail.com</p>
+				</div>
 			</a>
 			<a class="hover:underline" href="https://github.com/HugoBrink">
-				<p class="flex flex-row gap-2">
+				<p class="flex flex-row items-center justify-center gap-2">
 					<img src="/assets/github.svg" alt="Github" />
 					@hugobrink
 				</p>
+			</a>
+			<a
+				class="hover:underline"
+				href="https://www.linkedin.com/in/hugo-brink/"
+			>
+				<div class="flex flex-row items-center justify-center gap-2">
+					<img
+						src="/assets/linkedin.svg"
+						width="25"
+						height="25"
+						alt="Linkedin"
+					/>
+					<p>hugo-brink</p>
+				</div>
+			</a>
+		</div>
+
+		<div
+			class="flex md:hidden flex-row gap-2 items-center justify-center py-5 px-20 gap-x-5"
+		>
+			<a href="https://www.linkedin.com/in/hugo-brink/">
+				<img
+					src="/assets/linkedin.svg"
+					alt="Linkedin"
+					height="30"
+					width="30"
+				/>
+			</a>
+			<a href="https://github.com/HugoBrink">
+				<img
+					src="/assets/github.svg"
+					alt="Github"
+					height="30"
+					width="30"
+				/>
+			</a>
+			<a
+				href="mailto:hugobrinkcarvalho@gmail.com?subject=Personal%20Website:"
+			>
+				<img
+					src="/assets/email.svg"
+					alt="Mail"
+					height="30"
+					width="30"
+				/>
 			</a>
 		</div>
 	</div>
