@@ -3,7 +3,7 @@ const experience = [
 		date: '2025 - Present',
 		title: (
 			<p className="font-semibold">
-				Fullstack Developer @ <a href="https://www.ethiack.com/"></a>Ethiack {' '}
+				Fullstack Developer @ <a href="https://www.ethiack.com/">Ethiack</a> {' '}
 				<p className="text-gray-500 text-sm">Portugal, Remote</p>
 			</p>
 		),
