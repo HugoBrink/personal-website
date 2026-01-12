@@ -1,28 +1,25 @@
 const experience = [
 	{
-		date: '2020 - 2022',
+		date: '2025 - Present',
 		title: (
 			<p className="font-semibold">
-				Web Developer @{' '}
-				<a href="https://www.accenture.com/pt-pt">Accenture</a>
+				Fullstack Developer @ <a href="https://www.ethiack.com/"></a>Ethiack {' '}
 				<p className="text-gray-500 text-sm">Portugal, Remote</p>
 			</p>
 		),
 		summary:
-			'Worked on various projects, ranging from automation/load testing to web development. Initially focused on Python scripting and automation testing using JMeter, alongside data analysis in Excel. Later transitioned to an outsourcing role for Valvoline, developing a platform with Angular and Java Spring Boot, following best coding practices and Git conventions. Gained experience working with Agile methodologies.',
+			'I work as a Fullstack Developer at Ethiack, a cybersecurity company that combines AI-powered pentesting with expert insights to continuously uncover, validate and prioritize real risks. improve security posture. I am responsible for developing the company\'s portal applications.',
 		techs: {
 			Python: 'skill-icons:python-light',
-			JavaScript: 'material-symbols:javascript',
-			Angular: 'skill-icons:angular-light',
-			Excel: 'vscode-icons:file-type-excel',
-			JMeter: 'simple-icons:apachejmeter',
-			Java: 'skill-icons:java-light',
-			'Spring Boot': 'skill-icons:spring-light',
+			NextJS: 'logos:nextjs-icon',
+			React: 'logos:react',
+			PostgresSQL: 'logos:postgresql',
 			Git: 'logos:git-icon',
 		},
 	},
+	
 	{
-		date: '2022 - Present',
+		date: '2022 - 2025',
 		title: (
 			<p className="font-semibold">
 				Freelancer @ -{' '}
@@ -44,6 +41,28 @@ const experience = [
 			Vercel: 'logos:vercel-icon',
 			Git: 'logos:git-icon',
 			Hostinger: 'simple-icons:hostinger',
+		},
+	},
+	{
+		date: '2020 - 2022',
+		title: (
+			<p className="font-semibold">
+				Web Developer @{' '}
+				<a href="https://www.accenture.com/pt-pt">Accenture</a>
+				<p className="text-gray-500 text-sm">Portugal, Remote</p>
+			</p>
+		),
+		summary:
+			'Worked on various projects, ranging from automation/load testing to web development. Initially focused on Python scripting and automation testing using JMeter, alongside data analysis in Excel. Later transitioned to an outsourcing role for Valvoline, developing a platform with Angular and Java Spring Boot, following best coding practices and Git conventions. Gained experience working with Agile methodologies.',
+		techs: {
+			Python: 'skill-icons:python-light',
+			JavaScript: 'material-symbols:javascript',
+			Angular: 'skill-icons:angular-light',
+			Excel: 'vscode-icons:file-type-excel',
+			JMeter: 'simple-icons:apachejmeter',
+			Java: 'skill-icons:java-light',
+			'Spring Boot': 'skill-icons:spring-light',
+			Git: 'logos:git-icon',
 		},
 	},
 ];
@@ -84,9 +103,9 @@ function ExperienceItem() {
 					<div className="flex flex-col text-white ">
 						{item.title}
 
-						<li className="text-sm text-gray-400">
+						<p className="text-sm text-gray-400">
 							{item.summary}
-						</li>
+						</p>
 						<p className="font-semibold py-1">Techs:</p>
 						<div className="flex flex-wrap gap-2">
 							{Object.keys(item.techs).map((tech, index) => (
