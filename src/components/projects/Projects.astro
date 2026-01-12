@@ -28,60 +28,94 @@ const urls = {
 
 <div class="flex flex-col items-center justify-center" id="last-projects">
 	<h1 class="text-white">Projects</h1>
-	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-2">
+	<div
+		class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-2 items-start"
+	>
 		{
 			last_projects.map((project, index) => (
-				<div class="w-80 md:h-96 text-white flex flex-col px-5 m-2 shadow-2xl shadow-slate-900 border-2 border-gray-500 rounded-lg bg-[#201f1f] text-sm">
-					<div class="flex flex-row items-center gap-x-3 min-h-20">
-						<iconify-icon
-							icon={`mdi-light:folder`}
-							width="20"
-							height="20"
-							class="pb-5"
-						/>
-						<h2 class="text-xl font-semibold">
-							{project.organization}
-						</h2>
-						{project.link && (
-							<a href={project.link} target="_blank">
-								<iconify-icon
-									icon="eva:diagonal-arrow-right-up-fill"
-									width="20"
-									height="20"
-									class="hover:scale-125 hover:animate-pulse"
-								/>
-							</a>
-						)}
-						{project.github && (
-							<a href={project.github} target="_blank">
-								<iconify-icon
-									icon="mdi:github"
-									width="20"
-									height="20"
-								/>
-							</a>
-						)}
+				<div
+					class="project-card w-80 text-white flex flex-col px-5 m-2 shadow-2xl shadow-slate-900 border-2 border-gray-500 rounded-lg bg-[#201f1f] text-sm cursor-pointer transition-all duration-300 self-start"
+					data-project-id={index}
+				>
+					<div class="flex flex-row items-center justify-between gap-x-3 min-h-20">
+						<div class="flex flex-row items-center gap-x-3">
+							<iconify-icon
+								icon={`mdi-light:folder`}
+								width="20"
+								height="20"
+								class="pb-5"
+							/>
+							<h2 class="text-xl font-semibold">
+								{project.organization}
+							</h2>
+						</div>
+						<div class="flex items-center gap-x-2">
+							{project.link && (
+								<a
+									href={project.link}
+									target="_blank"
+									class="project-link"
+									onclick="event.stopPropagation()"
+								>
+									<iconify-icon
+										icon="eva:diagonal-arrow-right-up-fill"
+										width="20"
+										height="20"
+										class="hover:scale-125 hover:animate-pulse"
+									/>
+								</a>
+							)}
+							{project.github && (
+								<a
+									href={project.github}
+									target="_blank"
+									class="project-link"
+									onclick="event.stopPropagation()"
+								>
+									<iconify-icon
+										icon="mdi:github"
+										width="20"
+										height="20"
+										class="hover:scale-110"
+									/>
+								</a>
+							)}
+							<iconify-icon
+								icon="mdi:chevron-down"
+								width="24"
+								height="24"
+								class="expand-icon transition-transform duration-300 text-gray-400"
+							/>
+						</div>
 					</div>
 
-					<div class="md:min-h-48">
-						<p class="text-gray-300">type: {project.type}</p>
-						<p class="pt-2">{project.description}</p>
-						<ul class="pt-2">
-							{project.list?.map((item) => (
-								<li class="list-disc ml-4 text-gray-400">
-									{item}
-								</li>
-							))}
-						</ul>
+					<p class="text-gray-300 pb-2">type: {project.type}</p>
+
+					<div
+						class="collapsible-content overflow-hidden transition-all duration-300"
+						style="max-height: 0;"
+					>
+						<div class="pb-4">
+							<p class="pt-2">{project.description}</p>
+							<ul class="pt-2">
+								{project.list?.map((item) => (
+									<li class="list-disc ml-4 text-gray-400">
+										{item}
+									</li>
+								))}
+							</ul>
+						</div>
 					</div>
 
-					<div class="grid grid-cols-2 gap-2 m-2 ">
+					<div class="grid grid-cols-2 gap-2 m-2 mb-4">
 						{Object.keys(project.techs).map((tech, index) => (
 							<a
 								href={urls[tech as keyof typeof urls]}
 								target="_blank"
+								class="tech-link"
+								onclick="event.stopPropagation()"
 							>
-								<div class="flex items-center bg-gray-800 rounded-md p-2">
+								<div class="flex items-center bg-gray-800 rounded-md p-2 hover:bg-gray-700 transition-colors">
 									<iconify-icon
 										icon={`${project.techs[tech as keyof typeof project.techs]?.toLowerCase() ?? ''}`}
 										width="20"
@@ -97,3 +131,51 @@ const urls = {
 		}
 	</div>
 </div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const projectCards = document.querySelectorAll('.project-card');
+
+		projectCards.forEach((card) => {
+			const collapsibleContent = card.querySelector(
+				'.collapsible-content'
+			) as HTMLElement;
+			const expandIcon = card.querySelector(
+				'.expand-icon'
+			) as HTMLElement;
+
+			// Set initial collapsed state
+			let isExpanded = false;
+
+			card.addEventListener('click', (e) => {
+				// Toggle expanded state
+				isExpanded = !isExpanded;
+
+				if (isExpanded) {
+					// Expand
+					collapsibleContent.style.maxHeight =
+						collapsibleContent.scrollHeight + 'px';
+					expandIcon.style.transform = 'rotate(180deg)';
+				} else {
+					// Collapse
+					collapsibleContent.style.maxHeight = '0';
+					expandIcon.style.transform = 'rotate(0deg)';
+				}
+			});
+		});
+	});
+</script>
+
+<style>
+	.project-card:hover {
+		border-color: rgb(107, 114, 128);
+	}
+
+	.collapsible-content {
+		transition: max-height 0.3s ease-in-out;
+	}
+
+	.expand-icon {
+		flex-shrink: 0;
+	}
+</style>

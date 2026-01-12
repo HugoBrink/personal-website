@@ -112,7 +112,7 @@ export const last_projects = [
 		organization: "Friendly Football League Website",
 		type: "website",
 		avatar: "img/last_projects/portfolio.png",
-		link: "/http://grupeta-do-futebol.vercel.app/",
+		link: "http://grupeta-do-futebol.vercel.app/",
 		github: "https://github.com/HugoBrink/football-league",
 		description:
 			"Developed a website with Next.js to keep track of a friendly football league. ",
